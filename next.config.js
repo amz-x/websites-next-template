@@ -16,6 +16,12 @@ dotenvLoad();
 // Configuration
 const nextConfig = {
 	distDir: 'build',
+	exportTrailingSlash: false,
+	exportPathMap: function() {
+		return {
+			'/index.html': { page: '/' }
+		};
+	},	
 	webpack: (config, options) => {
 		config.resolve.modules.unshift(__dirname)
 		return config;
